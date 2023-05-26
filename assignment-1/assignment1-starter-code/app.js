@@ -1,16 +1,30 @@
 (function() {
     'use strict';
-    anugular.module('LunchCheck', [])
-        .controller('LunchCheckController', 'LunchCheckController');
+    angular.module('LunchCheck', [])
+        .controller('LunchCheckController', LunchCheckController);
 
-    LunchCheckController.$inject = [$scope];
+    LunchCheckController.$inject = ['$scope'];
 
     function LunchCheckController($scope) {
+        $scope.message = "";
         $scope.validateLunch = function() {
-            inputText = $scope.litems;
+            var inputText = $scope.litems
             console.log(inputText);
-            $scope.errorMessage = "Enjoy!";
-        }
+            if (inputText == undefined) {
+                $scope.message = "Please enter data first";
+            } else {
+                var items = inputText.split(',');
+                for (var i = 0; i < items.length; i++) {
+                    var item = items[i];
+                    if (item <= 3) {
+                        $scope.message = "Enjoy!";
+                    } else {
+                        $scope.message = "Check If Too Much";
+                        break;
+                    }
+                }
+            }
+        };
     }
 
 })();

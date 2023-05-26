@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app='LunchCheck'>
 
 <head>
     <title>Lunch Checker</title>
@@ -11,12 +11,13 @@
             font-weight: bold;
         }
     </style>
-</head>
-<script src="angular.min.js"></script>
-<script src="app.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
 
-<body ng-app="LunchCheck">
-    <div class="container" ng-controller="LunchCheckController">
+</head>
+
+<body>
+    <div class="container" ng-controller='LunchCheckController'>
         <h1>Lunch Checker</h1>
 
         <div class="form-group">
