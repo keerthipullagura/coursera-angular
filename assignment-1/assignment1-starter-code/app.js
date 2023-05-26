@@ -12,11 +12,13 @@
             console.log(inputText);
             if (inputText == undefined) {
                 $scope.message = "Please enter data first";
+                return;
             } else {
                 var items = inputText.split(',');
                 if (items != undefined && items.length <= 3) {
                     $scope.message = "Enjoy!";
-                } else {
+                }
+                if (items.length > 3) {
                     $scope.message = "Check If Too Much";
                 }
             }
