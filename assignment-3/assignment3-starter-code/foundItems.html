@@ -1,0 +1,6 @@
+<ol>
+    <li ng-repeat="item in ndc.items">
+        {{ item.description }} of {{ item.name }} for small price {{item.price_small}}
+        <button ng-click="ndc.onRemove({index: $index});">Remove Item</button>
+    </li>
+</ol>

@@ -19,12 +19,15 @@
         </div>
         <div class="form-group narrow-button">
             <button class="btn btn-primary" ng-click="ndc.getMenuItems(searchTerm);">Narrow It Down For Me!</button>
-            <li ng-repeat="item in ndc.foundItems">
+            <!--li ng-repeat="item in ndc.items">
                 {{ item.description }}
-            </li>
+            </li-->
         </div>
-
-        <found-items found-items="...." on-remove="...."></found-items>
+        <div class="form-group">
+            <br/>
+            <br/>
+        </div>
+        <found-items items="ndc.items" on-remove="ndc.removeItem(index)"></found-items>
     </div>
 
 </body>
