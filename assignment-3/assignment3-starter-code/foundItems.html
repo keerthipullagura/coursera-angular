@@ -1,6 +1,17 @@
 <ol>
     <li ng-repeat="item in ndc.items">
-        {{ item.description }} of {{ item.name }} for small price {{item.price_small}}
-        <button ng-click="ndc.onRemove({index: $index});">Remove Item</button>
+        <tr>
+
+            <td> {{ item.description }} | </td>
+            <td>
+                {{ item.name }} |
+            </td>
+            <td>
+                {{item.short_name}}
+            </td>
+            <td>
+                <button ng-click="ndc.onRemove({index: $index});">Don't want this one!</button>
+            </td>
+        </tr>
     </li>
 </ol>
