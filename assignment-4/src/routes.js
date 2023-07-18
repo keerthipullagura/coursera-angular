@@ -17,13 +17,13 @@
         // Home page
             .state('home', {
             url: '/',
-            templateUrl: 'src/restaurant/home.template.html'
+            templateUrl: 'src/restaurant/template/home.template.html'
         })
 
         // Categories page
         .state('categories', {
             url: '/categories',
-            templateUrl: 'src/restaurant/categories.template.html',
+            templateUrl: 'src/restaurant/template/categories.template.html',
             controller: 'CategoriesController as catCtrl',
             resolve: {
                 categories: ['MenuDataService', function(MenuDataService) {
@@ -34,7 +34,7 @@
 
         .state('catDetail', {
             url: '/cat-detail/{categoryShortName}',
-            templateUrl: 'src/restaurant/items.template.html',
+            templateUrl: 'src/restaurant/template/items.template.html',
             controller: 'ItemsController as itemCtrl',
             resolve: {
                 items: ['$stateParams', 'MenuDataService',
