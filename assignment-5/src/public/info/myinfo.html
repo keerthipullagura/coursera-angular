@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <ng-if="infoCtrl.userInfo.firstName != '' ">
+                <h1>Showing information for user.</h1>
+                <p>First name: {{infoCtrl.userInfo.firstName}}</p>
+                <p>Last name: {{infoCtrl.userInfo.lastName}}</p>
+                <p>Email: {{infoCtrl.userInfo.email}}</p>
+                <p>Phone: {{infoCtrl.userInfo.phone}}</p>
+                <p>Favorite Dish Details</p>
+                <p>Description: {{infoCtrl.userInfo.description}}</p>
+                <p>Name: {{infoCtrl.userInfo.name}}</p>
+                <p>Price: {{infoCtrl.userInfo.price_large}}</p>
+                <img class="img-responsive" ng-src="images/menu/{{infoCtrl.imgpath}}" alt="{{infoCtrl.userInfo.short_name}}" />
+        </div>
+        <div ng-if="infoCtrl.userInfo.firstName == '' ">
+            <h1>You need to signup first. <a class="btn btn-default" ui-sref="public.signup">Signup now!</a></h1-->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<h1 class="text-center">Signup for our newsletter!</h1>
+
+<div class="row">
+    <div class="col-xs-1 col-sm-2 col-md-3"></div>
+
+    <div class="col-xs-10 col-sm-8 col-md-6">
+        <form class="form-vertical" name="signupForm" ng-submit="signupCtrl.setPreference()" novalidate>
+            <div class="form-group" ng-class="{'has-error': signupForm.firstName.$error.required && (!signupForm.firstName.$pristine || signupForm.$submitted)}">
+                <label for="firstName">First Name*</label>
+                <input class="form-control" type="text" name="firstName" ng-model="userPreferences.firstName" required />
+                <span ng-if="signupForm.firstName.$error.required && (!signupForm.firstName.$pristine || signupForm.$submitted)" class="help-block">First Name is Required.</span>
+            </div>
+            <div class="form-group" ng-class="{'has-error': signupForm.lastName.$error.required && (!signupForm.lastName.$pristine || signupForm.$submitted)}">
+                <label for="lastName">Last Name*</label>
+                <input class="form-control" type="text" name="lastName" ng-model="userPreferences.lastName" required />
+                <span ng-if="signupForm.lastName.$error.required && (!signupForm.lastName.$pristine || signupForm.$submitted)" class="help-block">Last Name is required</span>
+            </div>
+            <div class="form-group" ng-class="{'has-error': (signupForm.email.$error.required && (!signupForm.email.$pristine || signupForm.$submitted)) || signupForm.email.$error.email }">
+                <label for="email">Email*</label>
+                <input class="form-control" type="email" name="email" ng-model="userPreferences.email" required />
+                <span ng-if="signupForm.email.$error.required && (!signupForm.email.$pristine || signupForm.$submitted)" class="help-block">Email is required.</span>
+                <span ng-if="signupForm.email.$error.email" class="help-block">Enter a valid email address.</span>
+            </div>
+            <div class="form-group" ng-class="{'has-error': (signupForm.phone.$error.required && (!signupForm.phone.$pristine || signupForm.$submitted)) || (signupForm.phone.$error.minlength || signupForm.phone.$error.maxlength)}">
+                <label for="phone">Phone Number*</label>
+                <input class="form-control" type="number" name="phone" ng-model="userPreferences.phone" ng-minlength="10" ng-maxlength="10" required />
+                <span ng-if="signupForm.phone.$error.required && (!signupForm.phone.$pristine || signupForm.$submitted)" class="help-block">Phone No is required.</span>
+                <span ng-if="signupForm.phone.$error.minlength || signupForm.phone.$error.maxlength" class="help-block">Phone No should be 10 digits.</span-->
+            </div>
+            <div class="form-group" ng-class="{'has-error': signupCtrl.showError}">
+                <label for="favDish">Favorite Dish-Menu Number</label>
+                <input class="form-control" type="text" name="favDish" ng-model="userPreferences.favDish" />
+                <span ng-if="signupCtrl.showError" class="help-block">That dish doesn't exist.</span>
+            </div>
+            <input type="submit" class="btn btn-default" value="Signup" ng-click="setPreference(signupForm)" />
+            <span class="text-success" ng-if="signupCtrl.showMessage">You have signed up!</span>
+        </form>
+    </div>
+
+    <div class="col-xs-1 col-sm-2 col-md-3"></div>
+</div>
