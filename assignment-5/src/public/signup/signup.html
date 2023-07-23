@@ -27,15 +27,15 @@
                 <span ng-if="signupForm.phone.$error.required && (!signupForm.phone.$pristine || signupForm.$submitted)" class="help-block">Phone No is required.</span>
                 <span ng-if="signupForm.phone.$error.minlength || signupForm.phone.$error.maxlength" class="help-block">Phone No should be 10 digits.</span-->
             </div>
-            <div class="form-group" ng-class="{'has-error': signupCtrl.showError}">
+            <div class="form-group">
                 <label for="favDish">Favorite Dish-Menu Number</label>
                 <input class="form-control" type="text" name="favDish" ng-model="userPreferences.favDish" />
-                <span ng-if="signupCtrl.showError" class="help-block">That dish doesn't exist.</span>
+                <!--span ng-if="signupCtrl.showError" class="help-block">That dish doesn't exist.</span-->
             </div>
             <input type="submit" class="btn btn-default" value="Signup" ng-click="setPreference(signupForm)" />
             <span class="text-success" ng-if="signupCtrl.showMessage">You have signed up!</span>
         </form>
-    </div>
+        </div>
 
-    <div class="col-xs-1 col-sm-2 col-md-3"></div>
-</div>
+        <div class="col-xs-1 col-sm-2 col-md-3"></div>
+    </div>

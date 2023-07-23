@@ -58,9 +58,10 @@
         }
         service.getFavoriteDish = function(menu_number) {
             service.match = menu_number.match(/\d+/);
-            service.startIndex = parseInt(service.match[0], 10);
-            service.short_name = menu_number.substring(0, service.startIndex);
-            service.menu_no = menu_number.substring(service.startIndex) - 1;
+            service.firstOccurDigit = parseInt(service.match[0], 10);
+            service.indexOfFirstDigit = menu_number.indexOf(service.firstOccurDigit)
+            service.short_name = menu_number.substring(0, service.indexOfFirstDigit);
+            service.menu_no = menu_number.substring(service.indexOfFirstDigit) - 1;
             /*coursera - jhu -
                 default -rtdb.firebaseio.com / menu_items / L / menu_items / 0. json*/
             return $http.get(ApiPath + '/menu_items/' + service.short_name + '/menu_items/' + service.menu_no + '.json');

@@ -14,14 +14,16 @@
 
         info.userInfo = MenuService.getUserInfo();
 
-        info.match = info.userInfo.favDish.match(/\d+/);
-        info.startIndex = parseInt(info.match[0], 10);
-        info.shortname_without_no = info.userInfo.favDish.substring(0, info.startIndex);
-        info.menu_no = info.userInfo.favDish.substring(info.startIndex);
-        info.imgpath = info.shortname_without_no + "/" + info.shortname_without_no + info.menu_no + ".jpg";
-        if (angular.equals(info.userInfo, {})) {
+
+        if (angular.equals(info.userInfo.firstName, undefined)) {
             info.userExists = false;
         } else {
+            info.match = info.userInfo.favDish.match(/\d+/);
+            info.firstOccurDigit = parseInt(info.match[0], 10);
+            info.indexOfFirstDigit = info.userInfo.favDish.indexOf(info.firstOccurDigit);
+            info.shortname_without_no = info.userInfo.favDish.substring(0, info.indexOfFirstDigit);
+            info.menu_no = info.userInfo.favDish.substring(info.indexOfFirstDigit);
+            info.imgpath = info.shortname_without_no + "/" + info.shortname_without_no + info.menu_no + ".jpg";
             info.userExists = true;
         }
     }
